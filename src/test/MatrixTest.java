@@ -100,8 +100,6 @@ public class MatrixTest
 			m2 = new Matrix(10, 10);
 
 		assertEquals(m2, Matrix.parse(m2.toString()));
-		
-		System.out.println(m2);
 	}
 	
 }

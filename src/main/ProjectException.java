@@ -1,4 +1,4 @@
-package main.exceptions;
+package main;
 
 public abstract class ProjectException extends RuntimeException
 {

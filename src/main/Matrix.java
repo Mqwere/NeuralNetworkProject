@@ -5,8 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
-import main.exceptions.MatrixException;
-
 public class Matrix
 {
 	double[][] 
@@ -262,8 +260,7 @@ public class Matrix
 			throw new MatrixException(e);
 		}
 	}
-	
-	
+		
 	public static Matrix getAddition(Matrix first, Matrix second) throws MatrixException
 	{
 		Matrix output = first.clone();
@@ -367,6 +364,17 @@ public class Matrix
 				this.values[y][x] = other.values[y][x];
 			}
 		}
+	}
+	
+	public static class MatrixException extends ProjectException
+	{
+		private static final long serialVersionUID = 1L;
+
+		public MatrixException(Object message, Object... args)
+		{
+			super(message, args);
+		}
+
 	}
 	
 }
