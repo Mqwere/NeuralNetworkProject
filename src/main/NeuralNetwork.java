@@ -15,7 +15,7 @@ public class NeuralNetwork
 	private ArrayList<Matrix>	biasesForEdges;
 		
 	// this is a little redundant, since you could get its data from the matrices above
-	// but I decided I dont wanna generate the array every time I'd like to have it, so there
+	// but I decided I don't want to generate the array every time I'd like to have it, so there
 	private ArrayList<Integer>	numberOfNodesByLayer; 
 
 	NeuralNetwork( Builder builder )
@@ -138,7 +138,7 @@ public class NeuralNetwork
 	@Override
 	public String toString()
 	{
-		String output = String.format("%.3f\n", learningRate);
+		String output = learningRate+"\n";
 
 		for (int i = 0; i < weightsForEdges.size(); i++)
 		{
@@ -259,23 +259,30 @@ public class NeuralNetwork
 
 		public Builder withInputLayerOfSize( int size )
 		{
-			hasInputLayer	= true;
-			inputLayerSize	= size;
+			if(size > 0)
+			{
+				hasInputLayer	= true;
+				inputLayerSize	= size;
+			}
 			return this;
 		}
 
 		public Builder withHiddenLayerOfSize( int size )
 		{
-			layersOfHiddenNodes.add(
-					size
-			);
+			if(size > 0)
+			{
+				layersOfHiddenNodes.add(size);
+			}
 			return this;
 		}
 
 		public Builder withOutputLayerOfSize( int size )
 		{
-			hasOutputLayer		= true;
-			outputLayerSize	= size;
+			if(size > 0)
+			{
+				hasOutputLayer	= true;
+				outputLayerSize	= size;
+			}
 			return this;
 		}
 
